@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Root Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Square Root Calculator</h1>
+        <label for="num" class="lable">Enter a number: </label>    
+        <input type="number" id="num" class="one" name="num">
+
+        <button onclick="squareRootCalculator()">Calculate Square Root</button>
+        <p id="result"></p>
+
+    </div>
+
+    <script>
+       function squareRootCalculator() {
+        try{
+          var num = parseFloat(document.getElementById("num").value);
+          if(isNaN(num)){
+            throw new Error("Invalid input. Please enter a valid number.");
+          }
+          var result = Math.sqrt(num);
+          document.getElementById("result").innerHTML = "The square root of " + num + " is: " + result.toFixed(2);
+        }catch(error){
+            document.getElementById("result").innerHTML = error.message;
+        }
+       }
+    </script>
+</body>
+
+</html>
